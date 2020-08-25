@@ -1,0 +1,55 @@
+<html>
+<head>
+  <title>Imperial to Metric</title>
+  <meta charset="utf-8"/>  
+  <script src="ImperialToMetric.js"></script>
+</head>
+<body>
+    <form>
+        <form action="#" method="post">
+        <label for="numeric">Number:</label>
+        <input type="number" id="numeric" name="numeric"><br>
+
+        <input type ="radio" id ="cupW" name="measurement" value="cupW">
+        <label for="cupW">Cups (To Weight)</label><br>
+        
+        <input type ="radio" id ="cupV" name="measurement" value="cupV">
+        <label for="cupV">Cups (To Liquid Volume)</label><br>
+
+        <input type ="radio" id ="tbsp" name="measurement" value="tbsp">
+        <label for="tbsp">Tablespoon</label><br>
+        
+        <input type ="radio" id ="oz" name="measurement" value="oz">
+        <label for="oz">Ounces</label><br>
+
+        <input type ="radio" id ="fl oz" name="measurement" value="fl oz">
+        <label for="fl oz">Fluid Ounces</label><br>
+        
+        <input type ="radio" id ="pt" name="measurement" value="pt">
+        <label for="pt">Pints</label><br>
+
+        <input type ="radio" id ="lb" name="measurement" value="lb">
+        <label for="lb">Pounds</label><br>
+
+        <input type ="radio" id ="g" name="measurement" value="g">
+        <label for="g">Grams</label><br>
+        
+        <input type ="radio" id ="ml" name="measurement" value="ml">
+        <label for="ml">Millilitres</label><br>
+
+        <input type ="radio" id ="kg" name="measurement" value="kg">
+        <label for="kg">Kilograms</label><br>
+        <input type ="radio" id ="l" name="measurement" value="l">
+        <label for="l">Litres</label><br>
+        
+        <label for="ingredient">Ingredient:</label>
+        <input type="text" id="ingredient" name="ingredient">
+        
+        <button type ="button" onclick ="convert(this.form.numeric.value, this.form.measurement.value, this.form.ingredient.value)">Submit</button>
+    </form>
+    <div id ="recipe"></div>
+    <ol>
+      <li></li>
+    </ol>
+</body>
+</html>
