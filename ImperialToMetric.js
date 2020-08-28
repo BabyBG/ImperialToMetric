@@ -1,12 +1,11 @@
 console.log("Javascript loaded successfully for ImperialToMetric")
 
 function convert(numeric, measurement, ingredient) {
-    numeric = parseInt(numeric);
     String(measurement, ingredient);
     let numMeasure = 0;
-    if (typeof numeric != 'number') {
-    alert("Numeric value failed " + numeric);
-    } else { 
+    //if (typeof numeric != 'number') {
+    //alert("Numeric value failed " + numeric);
+    //} else 
     switch(measurement) {
         case "cupW":
             measurement = "cupW";
@@ -50,7 +49,6 @@ function convert(numeric, measurement, ingredient) {
         default:
         alert("Measurement failed - numeric: " + numeric + " - Measurement: " + measurement);
         }
-    }
     numMeasure = Math.round(numMeasure);
     if (measurement === "cupW") { 
         measurement = "g"
@@ -220,7 +218,7 @@ function convert(numeric, measurement, ingredient) {
         }
         
     }
-    if (numMeasure > 1000) {
+    if (numMeasure > 999) {
         numMeasure = numMeasure / 1000;
         if (measurement === ("g")) { 
             measurement = "kg";
@@ -229,32 +227,58 @@ function convert(numeric, measurement, ingredient) {
         }
     }
     let finalIngredient = numMeasure + measurement + " " + ingredient;
-    
-    
-    let li = document.createElement("li");              //
-    let inputValue = finalIngredient;                   //
-    let t = document.createTextNode(inputValue);        //      Add ingredient to recipe compiler
-    li.appendChild(t);                                  //
-    document.getElementById("recipe").appendChild(li);  //
-
-
-    let myNodeList = document.getElementsByTagName("LI");       //
-    let i;                                                      //
-    for (i = 0; i < myNodeList.length; i++) {
-        let span = document.createElement("SPAN");              //  Creation of 'x' delete button (practically copy pasted from https://www.w3schools.com/howto/howto_js_todolist.asp)
-        let txt = document.createTextNode("\u00D7");
-        span.className = "close";                               //  MAKES EXTRA 'x' BUTTON AFTER EVERY ENTRY FOR UNKNOWN REASON
-        span.appendChild(txt);                                  //
-        myNodeList[i].appendChild(span);
-    }
 
     let close = document.getElementsByClassName("close")
-    let x;
-    for (x = 0; x < close.length; x++) {
-        close[x].onclick = function() {                         // Make 'x' delete (practically copy pasted from https://www.w3schools.com/howto/howto_js_todolist.asp)
+    let i;
+    for (i = 0; i < close.length; i++) {
+        close[i].onclick = function() {                         // Make 'x' button delete (practically copy pasted from https://www.w3schools.com/howto/howto_js_todolist.asp)
             let div = this.parentElement;                       
             div.style.display = "none";
         }
     }
-    //alert(finalIngredient);
+    
+    let li = document.createElement("li");              //
+    let t = document.createTextNode(finalIngredient);        //      Add ingredient to recipe compiler.
+    li.appendChild(t);                                  //
+    document.getElementById("recipe").appendChild(li);  //
+
+    document.getElementById("numeric").value = "";        //        Reset 'numeric' and 'ingredient' values on HTML form.
+    document.getElementById("ingredient").value = "";      //
+
+    let span = document.createElement("SPAN");
+    let txt = document.createTextNode("\u00D7");
+    span.className = "close";
+    span.appendChild(txt);
+    li.appendChild(span);
+
+    for (i = 0; i < close.length; i++) {
+    close[i].onclick = function() {
+      var div = this.parentElement;
+      div.style.display = "none";
+        }
+    } 
+    
+    
 }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    //let myNodeList = document.getElementsByTagName("recipe");       //
+    //let i;                                                      //
+    //for (i = 0; i < myNodeList.length; i++) {
+        //let span = document.createElement("SPAN");              //  Creation of 'x' delete button (practically copy pasted from https://www.w3schools.com/howto/howto_js_todolist.asp)
+        //let txt = document.createTextNode("\u00D7");
+        //span.className = "close";                               //  MAKES EXTRA 'x' BUTTON AFTER EVERY ENTRY FOR UNKNOWN REASON
+        //span.appendChild(txt);                                  //
+        //myNodeList[i].appendChild(span);
+    //}
+
+
+    //
+    //alert(finalIngredient);
